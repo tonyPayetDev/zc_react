@@ -36,11 +36,12 @@ const GoogleMaps = ({ latitude, longitude ,cars ,options,motorisation}) => {
       });
     }
   };
+  
   if(cars){
 
  renderMarkers= cars.map((data,index)=>{
-    const type=options.filter(options => options.value ===  data.type ).map(options=>options.label)[0];
-    const moto=motorisation.filter(motorisation => motorisation.value ===  data.motorisation ).map(motorisation=>motorisation.label)[0];
+    const type=options.filter(options => options.value ==  data.type ).map(options=>options.label)[0];
+    const moto=motorisation.filter(motorisation => motorisation.value ==  data.motorisation ).map(motorisation=>motorisation.label)[0];
 
     return  <Marker
               icon={{
@@ -64,7 +65,7 @@ const GoogleMaps = ({ latitude, longitude ,cars ,options,motorisation}) => {
 
  return (
 
-    <Map  style={{width:'90%',height:"70%"}}
+    <Map  style={{width:'90%',height:"65%"}}
           google={window.google} 
           zoom={APIConfig.Zoom}     
           center={{ lat: latitude, lng: longitude }}
