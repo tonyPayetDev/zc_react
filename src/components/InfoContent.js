@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from '../images/icon.png';
 
-const InfoContent = (props: any) => {
+const InfoContent = (props) => {
     const { name} = props;
     
     return (

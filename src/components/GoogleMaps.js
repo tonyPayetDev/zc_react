@@ -5,9 +5,6 @@ import InfoContent from './InfoContent.js';
 import Icon from '../images/car.png';
 import * as APIConfig from '../constants/APIConfig'
 
-const infoWindow = {
-  color: 'red'
-};
 
 const GoogleMaps = ({ latitude, longitude ,cars ,options,motorisation}) => {
 
@@ -75,7 +72,6 @@ const GoogleMaps = ({ latitude, longitude ,cars ,options,motorisation}) => {
         <InfoWindow
           marker={state.activeMarker}
           visible={state.showingInfoWindow}
-          style={infoWindow}
           onClose={onClose}>
               <InfoContent name={state.selectedPlace.name}> </InfoContent>
         </InfoWindow>
