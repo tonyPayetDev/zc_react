@@ -10,7 +10,7 @@
 .counter-btns button {
   margin: 0 5px;
   text-transform: lowercase;
-}   
+}
 .btn-success {
   background-color: #32b298;
   border-color: #32b298;
@@ -21,7 +21,7 @@
 
 /*style the box which holds the text of the information window*/
 .gm-style .gm-style-iw {
-  max-width:448px!important;
+  max-width: 448px !important;
 
   top: 0 !important;
   left: 0 !important;

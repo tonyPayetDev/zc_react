@@ -1,55 +1,63 @@
-import {GoogleApiWrapper } from 'google-maps-react';
-import GoogleMaps from './components/GoogleMaps';
-import SearchLocationInput from './components/SearchLocationInput';
-import SelectBox from './components/SelectBox';
-import React, { useState, useEffect } from 'react';
-import * as APIConfig from './constants/APIConfig'
+import { GoogleApiWrapper } from "google-maps-react";
+import GoogleMaps from "./components/GoogleMaps";
+import SearchLocationInput from "./components/SearchLocationInput";
+import SelectBox from "./components/SelectBox";
+import React, { useState, useEffect } from "react";
+import * as APIConfig from "./constants/APIConfig";
 
-  
 const App = () => {
-
   const [state, updateState] = React.useState({
     lat: -21,
     lng: 55.5,
-    showingInfoWindow: false,  // Hides or shows the InfoWindow
-    activeMarker: {},          // Shows the active marker upon click
+    showingInfoWindow: false, // Hides or shows the InfoWindow
+    activeMarker: {}, // Shows the active marker upon click
     selectedPlace: {},
-
-  })
+  });
 
   const [cars, setCars] = useState();
-  const [selectedSort, setSelectedSort] = useState()
-  const [optionsMoto, setOptionsMoto] = useState([
-  ]);
-  const [options, setOptions] = useState([
-  ]);
+  const [selectedSort, setSelectedSort] = useState();
+  const [optionsMoto, setOptionsMoto] = useState([]);
+  const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    APIConfig.getItems().then(data => setCars(data));
+    APIConfig.getItems().then((data) => setCars(data));
   }, []);
 
   useEffect(() => {
-      APIConfig.getItemsType().then(data => setOptions(data));
-    }, []);
+    APIConfig.getItemsType().then((data) => setOptions(data));
+  }, []);
 
   useEffect(() => {
-      APIConfig.getItemsMoto().then(data => setOptionsMoto(data));
-    }, []);
-
+    APIConfig.getItemsMoto().then((data) => setOptionsMoto(data));
+  }, []);
 
   return (
-      <div class="container">
+    <div class="container">
       <h3>Recherche une voiture a proximité</h3>
 
-      <SearchLocationInput  state={state}  updateState={updateState} ></SearchLocationInput>
+      <SearchLocationInput
+        state={state}
+        updateState={updateState}
+      ></SearchLocationInput>
 
-      <SelectBox   options={options} optionsMoto={optionsMoto}   setSelectedSort={setSelectedSort}  cars={cars}    ></SelectBox>
+      <SelectBox
+        options={options}
+        optionsMoto={optionsMoto}
+        setSelectedSort={setSelectedSort}
+        cars={cars}
+      ></SelectBox>
 
-      <GoogleMaps  options={options} motorisation={optionsMoto}   latitude={state.lat} longitude={state.lng} cars={selectedSort} ></GoogleMaps>
-
-    </div>)
+      <GoogleMaps
+        options={options}
+        motorisation={optionsMoto}
+        latitude={state.lat}
+        longitude={state.lng}
+        cars={selectedSort}
+      ></GoogleMaps>
+    </div>
+  );
 };
 
 export default GoogleApiWrapper({
-  apiKey: APIConfig.KEY_MAP
+  apiKey: APIConfig.KEY_MAP,
 })(App);
