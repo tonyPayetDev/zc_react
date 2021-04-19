@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../images/icon.png";
+import Icon from "../images/flags.png";
 
 const InfoContent = (props) => {
   const { name } = props;
@@ -10,7 +10,8 @@ const InfoContent = (props) => {
         <div class="row justify-content-center ">
           <div class="col-3">
             <img
-              style={{ width: "100%", height: "100%" }}
+              class="arrondie"
+              style={{ width: "100%", height: "90%" }}
               src={name.img}
               alt="Logo"
             />
@@ -25,15 +26,13 @@ const InfoContent = (props) => {
             <h5>
               <div class="row">
                 <h6>
-                  {" "}
-                  <img src={Icon} alt="Logo" />
-                  {name.adresse}
+                  <div class="fontsize-adresseinfoview"><img src={Icon} alt="Logo" /> {name.adresse}</div>
                 </h6>
               </div>
 
-              <div class="row m-1">
-                <div class="col-6 mr-2">{name.motorisation}</div>
-                <div class="col-6">{name.type}</div>
+              <div class="row m-1 ">
+                <div class="col-6 mr-2 fontsize-p2">{name.motorisation}</div>
+                <div class="col-6 fontsize-p2">{name.type}</div>
               </div>
             </h5>
           </div>

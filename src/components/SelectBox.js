@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
 const SelectBox = (props) => {
-  const { options, optionsMoto, setSelectedSort, cars } = props;
+  const { options, optionsMoto, setSelectedSort, cars, state } = props;
   const [search, setSearch] = useState("");
   const [searchAddress, setSearchddress] = useState("");
   const [searchMoto, setSearchMoto] = useState("");
@@ -12,7 +12,6 @@ const SelectBox = (props) => {
   useEffect(
     (props) => {
       // rechercher par type
-
       if (search && searchAddress == "" && searchMoto == "") {
         setSelectedSort(
           cars.filter((cars) => cars.type == search.value).map((cars) => cars)
@@ -81,7 +80,7 @@ const SelectBox = (props) => {
           setOptionsAdrr(adresse);
         }
 
-        setSelectedSort(cars);
+        //   setSelectedSort(cars);
       }
     },
     [search, searchAddress, searchMoto, cars]
@@ -90,7 +89,7 @@ const SelectBox = (props) => {
   return (
     <div class="row justify-content-center m-4">
       <div class="col-6">
-        <h6>Filtrer</h6>
+        <h6 class="center_filter">Filtrer</h6>
       </div>
       <div class="col-2">
         <Select

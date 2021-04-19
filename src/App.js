@@ -33,18 +33,23 @@ const App = () => {
 
   return (
     <div class="container">
-      <h3>Recherche une voiture a proximité</h3>
+      <h3 style={{ margin: "0px 0px 0px 29px " }}>
+        Recherche une voiture a proximité
+      </h3>
 
       <SearchLocationInput
         state={state}
         updateState={updateState}
+        cars={cars}
+        setSelectedSort={setSelectedSort}
       ></SearchLocationInput>
-
+      
       <SelectBox
         options={options}
         optionsMoto={optionsMoto}
         setSelectedSort={setSelectedSort}
         cars={cars}
+        state={state}
       ></SelectBox>
 
       <GoogleMaps
@@ -52,6 +57,7 @@ const App = () => {
         motorisation={optionsMoto}
         latitude={state.lat}
         longitude={state.lng}
+        setSelectedSort={setSelectedSort}
         cars={selectedSort}
       ></GoogleMaps>
     </div>

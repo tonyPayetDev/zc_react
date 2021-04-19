@@ -2,11 +2,19 @@ import React from "react";
 
 import { Map, InfoWindow, Marker } from "google-maps-react";
 import InfoContent from "./InfoContent.js";
-import Icon from "../images/car.png";
+import Icon from "../images/pin.png";
 import * as APIConfig from "../constants/APIConfig";
 
-const GoogleMaps = ({ latitude, longitude, cars, options, motorisation }) => {
+const GoogleMaps = ({
+  latitude,
+  longitude,
+  cars,
+  options,
+  motorisation,
+  setSelectedSort,
+}) => {
   let renderMarkers;
+
   const [state, setState] = React.useState({
     lat: -21,
     lng: 55.5,
@@ -72,7 +80,7 @@ const GoogleMaps = ({ latitude, longitude, cars, options, motorisation }) => {
 
   return (
     <Map
-      style={{ width: "90%", height: "65%" }}
+      style={{ margin: "0px 0px 0px 29px ", width: "81%", height: "65%" }}
       google={window.google}
       zoom={APIConfig.Zoom}
       center={{ lat: latitude, lng: longitude }}
